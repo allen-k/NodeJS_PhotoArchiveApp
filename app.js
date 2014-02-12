@@ -93,11 +93,20 @@ app.post('/upload', function (req, res) {
   var tempPath = req.files.imageUpload.path;
   var d = new Date();
   var n = d.getTime();
-  var targetPath = path.resolve('./protectedPhotos/' + req.session.user + '/' + n + '_' + req.files.imageUpload.name);
-    fs.rename(tempPath, targetPath, function(err) {
-      if (err) throw err;
-      console.log("Upload completed!");
-    });
+  if ((path.extname(req.files.imageUpload.name).toLowerCase() === '.png') || 
+    (path.extname(req.files.imageUpload.name).toLowerCase() === '.gif') || 
+    (path.extname(req.files.imageUpload.name).toLowerCase() === '.jpg')) {
+    var targetPath = path.resolve('./protectedPhotos/' + req.session.user + '/' + n + '_' + req.files.imageUpload.name);
+      fs.rename(tempPath, targetPath, function(err) {
+        if (err) throw err;
+        console.log("Upload completed!");
+      });
+    } else {
+      fs.unlink(tempPath, function () {
+            //if (err) throw err;
+            console.error("Only .png/.jpg/.gif files are allowed!");
+        });
+    }
   res.redirect('/');
 });
 app.get('/delete/:file', function (req, res) {
