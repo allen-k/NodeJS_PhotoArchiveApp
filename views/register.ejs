@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive Media A1 | <%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	<div id="topBar">
+  		<span style="float: left; margin-left: 10px;"><h2>Interactive Media Assignment 1 | Picture Archive App.</h2></span>
+  		<span style="float: right; margin-right: 10px;"><a href="/" class="modern">Login</a></span>
+  	</div>
+    <div id="loginBox" class="loginBoxGradient">
+    	<h1><%= title %></h1>
+    	<form method="post" id="registerForm" action="/register/new">
+    		<table><tr>
+    		<td align="right"><label>Username:</label></td><td><input type="text" name="uname" id="uname" class="depth" /></td>
+    	</tr><tr>
+    		<td align="right"><label>Password:</label></td><td><input type="password" name="upass" id="upass" class="depth" /> <a href="#" onClick="document.getElementById('registerForm').submit();" class="modern">Register</a></td></tr></table>
+    	</form>
+    </div>
+  </body>
+</html>

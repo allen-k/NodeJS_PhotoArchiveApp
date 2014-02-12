@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive Media A1 | <%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	<div id="topBar">
+  		<span style="float: left; margin-left: 10px;"><h2>Interactive Media Assignment 1 | Picture Archive App.</h2></span>
+  		<span style="float: right; margin-right: 10px; margin-top: 4px;"><b>Welcome, <%= user %></b><a href="/logout" class="modern">Logout</a></span>
+  	</div>
+    <div id="wrapper">
+      <h2 style="margin-left: 10px;">Viewing Image: <%= fileName %></h2>
+      <h4><a href="/" class="modern">Return to Archive</a><a href="<%= file %>" class="modern" download>Download Image</a><span style="float: right;"><a href="/delete/<%= fileName %>" class="modern2">Delete Image</a></span></h4>
+        <p align="center"><img src="<%= file %>" width="800" /></p>
+        <br>
+    </div>
+  </body>
+</html>

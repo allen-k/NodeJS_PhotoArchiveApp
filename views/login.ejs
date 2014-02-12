@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive Media A1 | <%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	<div id="topBar">
+  		<span style="float: left; margin-left: 10px;"><h2>Interactive Media Assignment 1 | Picture Archive App.</h2></span>
+  		<span style="float: right; margin-right: 10px; margin-top: 4px;"><h3>By: Allen Kaganovsky [ 100389429 ]</h3></span>
+  	</div>
+    <div id="loginBox" class="loginBoxGradient">
+    	<h1><%= title %></h1>
+    	<p>Please login to access your picture archive,<br>or <a href="/register" class="inline-link">register a new account.</a></p>
+    	<form method="post" id="loginForm" action="/login">
+    		<table><tr>
+    		<td align="right"><label>Username:</label></td><td><input type="text" name="uname" id="uname" class="depth" /></td>
+    	</tr><tr>
+    		<td align="right"><label>Password:</label></td><td><input type="password" name="upass" id="upass" class="depth" /> <a href="#" onClick="document.getElementById('loginForm').submit();" class="modern">Login</a></td></tr></table>
+    	</form>
+    </div>
+  </body>
+</html>

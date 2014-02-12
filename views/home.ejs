@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive Media A1 | <%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	<div id="topBar">
+  		<span style="float: left; margin-left: 10px;"><h2>Interactive Media Assignment 1 | Picture Archive App.</h2></span>
+  		<span style="float: right; margin-right: 10px; margin-top: 4px;"><b>Welcome, <%= user %></b><a href="/logout" class="modern">Logout</a></span>
+  	</div>
+    <div id="wrapper">
+      <h2 style="margin-left: 10px;">Upload Image to Archive</h2>
+      <form action="/upload" method="post" enctype="multipart/form-data" id="uploadImage">
+      <table style="border: 1px solid #333333; margin: 5px;"><tr>
+        <td align="left" width="100%"><input type="file" name="imageUpload" /></td>
+        <td align="left"><a href="#" onClick="document.getElementById('uploadImage').submit();" class="modern">Upload</a></td>
+      </tr></table>
+      </form>
+      <h3 style="margin-left: 10px;">Image List for <%= user %></h4>
+      <% if (images.length == 0) { %>
+        <table style="margin: 10px;">
+          <tr>
+            <td width="100%"><b>No images found!</b> Start your picture archive by uploading an image above.</td>
+          </tr></table>
+        <% } else { %>
+          <% for(var i = 0; i < images.length; i++) { %>
+            <div id="imageRow">
+              <div id="imageLeft">
+                <a href="/delete/<%= images[i] %>" class="modern2">Delete Image</a>
+              </div>
+              <div id="imageName">
+                <p style="font-size: 16px; margin-top: 10px;"><b>Image Name:</b><br><%= images[i] %></p>
+              </div>
+              <div id="imageButtons">
+                <a href="view/<%= images[i] %>" class="modern">View Image</a>
+                <a href="<%= user %>/<%= images[i] %>" class="modern" download>Download Image</a>
+              </div>
+              <div id="imagePreview">
+                <img src="<%= user %>/<%= images[i] %>" alt="<%= images[i] %>" height="90" />
+              </div>
+            </div>
+          <% } %>
+        <% } %>
+        <br>
+    </div>
+  </body>
+</html>
